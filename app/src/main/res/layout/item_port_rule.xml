@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- item_port_rule.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="horizontal" android:gravity="center_vertical"
+    android:padding="12dp">
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/tvProto"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="TCP" android:layout_marginEnd="8dp"/>
+
+    <TextView android:id="@+id/tvHostPort"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:textSize="15sp" android:textStyle="bold"/>
+
+    <TextView android:id="@+id/tvArrow"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text=" → " android:textColor="?attr/colorOnSurfaceVariant"/>
+
+    <TextView android:id="@+id/tvContainerPort"
+        android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1" android:textSize="15sp"/>
+
+    <ImageButton android:id="@+id/btnDelete"
+        android:layout_width="32dp" android:layout_height="32dp"
+        android:src="@android:drawable/ic_menu_delete"
+        android:background="?attr/selectableItemBackgroundBorderless"/>
+</LinearLayout>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Quick command chips -->
+    <HorizontalScrollView
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:scrollbars="none">
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupQuick"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:padding="8dp"/>
+    </HorizontalScrollView>
+
+    <!-- Output area -->
+    <ScrollView
+        android:id="@+id/scrollOutput"
+        android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#1a1a2e">
+        <TextView
+            android:id="@+id/tvOutput"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:fontFamily="monospace"
+            android:textColor="#e0e0e0"
+            android:textSize="12sp"
+            android:text="$ "/>
+    </ScrollView>
+
+    <!-- Input row -->
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:gravity="center_vertical"
+        android:background="?attr/colorSurface">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRefreshLogs"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Logs"
+            android:layout_marginEnd="8dp"
+            style="@style/Widget.Material3.Button.OutlinedButton"/>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editCommand"
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="command..."
+            android:fontFamily="monospace"
+            android:imeOptions="actionSend"
+            android:inputType="text"
+            android:layout_marginEnd="8dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnExec"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Run"/>
+
+    </LinearLayout>
+</LinearLayout>

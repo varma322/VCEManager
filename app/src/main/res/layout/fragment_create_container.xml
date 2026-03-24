@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent" android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorSurface"
+        app:title="New Container"
+        app:navigationIcon="@drawable/ic_back"/>
+
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="16dp">
+
+            <!-- Container Name -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:hint="Container Name"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_marginBottom="16dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editName"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:hint="e.g. mybox, nginx-server, pybot"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Rootfs Selection -->
+            <TextView android:text="Root Filesystem (tarball)"
+                android:textStyle="bold" android:textSize="14sp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"/>
+
+            <Spinner android:id="@+id/spinnerRootfs"
+                android:layout_width="match_parent" android:layout_height="48dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/spinner_bg"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutCustomRootfs"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:hint="Custom rootfs path"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_marginBottom="16dp"
+                android:visibility="gone">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editCustomRootfs"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:hint="/data/local/tmp/rootfs.tar.gz"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Storage Allocation -->
+            <TextView android:text="Storage Allocation"
+                android:textStyle="bold" android:textSize="14sp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView android:text="Note: VCE records your allocation choice. Actual disk usage depends on what you install inside the container."
+                android:textSize="12sp" android:textColor="?attr/colorOnSurfaceVariant"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"/>
+
+            <Spinner android:id="@+id/spinnerStorage"
+                android:layout_width="match_parent" android:layout_height="48dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/spinner_bg"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutCustomStorage"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:hint="Custom size in GB"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_marginBottom="16dp"
+                android:visibility="gone">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editCustomStorageGb"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:hint="e.g. 10 (for 10 GB)"
+                    android:inputType="numberDecimal"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Disk space info -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="12dp">
+                    <TextView android:text="💾  Storage Presets"
+                        android:textStyle="bold" android:textSize="13sp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"/>
+                    <TextView android:text="• 2 GB — Minimal (Alpine, lightweight scripts)\n• 4 GB — Standard (Ubuntu base + tools)\n• 6-8 GB — Development (compilers, runtimes)\n• 12-16 GB — Heavy workloads (databases, ML)"
+                        android:textSize="12sp" android:textColor="?attr/colorOnSurfaceVariant"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Create button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCreate"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="Create Container"
+                android:textSize="16sp"
+                android:paddingVertical="12dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

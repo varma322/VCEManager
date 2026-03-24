@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/dashboardFragment">
+
+    <fragment android:id="@+id/dashboardFragment"
+        android:name="com.vcemanager.ui.dashboard.DashboardFragment"
+        android:label="Dashboard">
+        <action android:id="@+id/action_dashboard_to_detail"
+            app:destination="@id/containerDetailFragment"/>
+        <action android:id="@+id/action_dashboard_to_createContainer"
+            app:destination="@id/createContainerFragment"/>
+        <action android:id="@+id/action_dashboard_to_containers"
+            app:destination="@id/containersFragment"/>
+    </fragment>
+
+    <fragment android:id="@+id/containersFragment"
+        android:name="com.vcemanager.ui.containers.ContainersFragment"
+        android:label="Containers">
+        <action android:id="@+id/action_containers_to_detail"
+            app:destination="@id/containerDetailFragment"/>
+        <action android:id="@+id/action_containers_to_createContainer"
+            app:destination="@id/createContainerFragment"/>
+    </fragment>
+
+    <fragment android:id="@+id/containerDetailFragment"
+        android:name="com.vcemanager.ui.containers.ContainerDetailFragment"
+        android:label="Container Detail">
+        <argument android:name="containerName"
+            app:argType="string"/>
+    </fragment>
+
+    <fragment android:id="@+id/createContainerFragment"
+        android:name="com.vcemanager.ui.containers.CreateContainerFragment"
+        android:label="New Container"/>
+</navigation>

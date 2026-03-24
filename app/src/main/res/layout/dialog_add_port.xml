@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="vertical" android:padding="16dp">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:hint="Host Port" style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_marginBottom="12dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editHostPort"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:inputType="number" android:hint="e.g. 8080"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:hint="Container Port" style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_marginBottom="12dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editContainerPort"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:inputType="number" android:hint="e.g. 80"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <RadioGroup android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RadioButton android:id="@+id/radioTcp"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="TCP" android:checked="true"/>
+        <RadioButton android:id="@+id/radioUdp"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="UDP" android:layout_marginStart="16dp"/>
+    </RadioGroup>
+
+    <TextView android:text="Example: Host 8080 → Container 80 forwards http://device-ip:8080 to nginx inside the container"
+        android:textSize="11sp" android:textColor="?attr/colorOnSurfaceVariant"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"/>
+</LinearLayout>

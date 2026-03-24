@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Info card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView android:text="Container Info"
+                    android:textStyle="bold" android:textSize="14sp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"/>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:layout_marginBottom="4dp">
+                    <TextView android:text="Name" android:layout_width="80dp" android:layout_height="wrap_content"
+                        android:textColor="?attr/colorOnSurfaceVariant" android:textSize="13sp"/>
+                    <TextView android:id="@+id/tvName" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:layout_marginBottom="4dp">
+                    <TextView android:text="IP" android:layout_width="80dp" android:layout_height="wrap_content"
+                        android:textColor="?attr/colorOnSurfaceVariant" android:textSize="13sp"/>
+                    <TextView android:id="@+id/tvIp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:layout_marginBottom="4dp">
+                    <TextView android:text="Created" android:layout_width="80dp" android:layout_height="wrap_content"
+                        android:textColor="?attr/colorOnSurfaceVariant" android:textSize="13sp"/>
+                    <TextView android:id="@+id/tvCreated" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:layout_marginBottom="4dp">
+                    <TextView android:text="Command" android:layout_width="80dp" android:layout_height="wrap_content"
+                        android:textColor="?attr/colorOnSurfaceVariant" android:textSize="13sp"/>
+                    <TextView android:id="@+id/tvCmd" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:layout_marginBottom="4dp">
+                    <TextView android:text="Storage" android:layout_width="80dp" android:layout_height="wrap_content"
+                        android:textColor="?attr/colorOnSurfaceVariant" android:textSize="13sp"/>
+                    <TextView android:id="@+id/tvStorage" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Resource limits card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView android:text="Resource Limits"
+                    android:textStyle="bold" android:textSize="14sp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"/>
+
+                <TextView android:text="CPU Limit (%)"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:textSize="13sp" android:layout_marginBottom="4dp"/>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical">
+                    <com.google.android.material.slider.Slider
+                        android:id="@+id/sliderCpu"
+                        android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:valueFrom="10" android:valueTo="100" android:stepSize="5"
+                        android:value="100"/>
+                    <TextView android:id="@+id/tvCpuPercent"
+                        android:layout_width="50dp" android:layout_height="wrap_content"
+                        android:text="100%" android:gravity="end" android:textStyle="bold"/>
+                </LinearLayout>
+
+                <TextView android:text="Pin to CPU Cores (e.g. 0,1 or 0-3)"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:textSize="13sp" android:layout_marginTop="12dp" android:layout_marginBottom="4dp"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editCpuCores"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:hint="Leave blank for all cores"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:layout_marginTop="12dp">
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnApplyLimits"
+                        android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:text="Apply Limits"
+                        android:layout_marginEnd="8dp"/>
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnClearLimits"
+                        android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:text="Clear Limits"
+                        style="@style/Widget.Material3.Button.OutlinedButton"/>
+                </LinearLayout>
+
+                <!-- Current limits display -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:layout_marginTop="8dp">
+                    <TextView android:text="Active: " android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:textColor="?attr/colorOnSurfaceVariant"/>
+                    <TextView android:id="@+id/tvCpuLimit" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="CPU: None"/>
+                    <TextView android:text="  |  " android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:textColor="?attr/colorOnSurfaceVariant"/>
+                    <TextView android:id="@+id/tvCpuCores" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="Cores: All"/>
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnViewLogs"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp" android:text="View Logs"
+                    style="@style/Widget.Material3.Button.TextButton"/>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+</ScrollView>
